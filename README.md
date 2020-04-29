@@ -9,7 +9,9 @@ These images may look identical, but one of them is encoded with a hidden messag
 
 ### Decoded Image
 ![decoded image](images/decoded_chonker.png)
+
 After running the encoded image through a short python script, this is the result!
+
 ---
 ### But how??
 Every png can be broken down into pixels and every pixel contains 3 numbers that can range from 0 to 255. So a pixel looks something like this:
