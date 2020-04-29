@@ -1,10 +1,16 @@
 from PIL import Image, ImageDraw
 import textwrap
+from sys import argv
+
 _BLACK = (0, 0, 0)
 _WHITE = (255, 255, 255)
 
 
-def decode_image(file_location, output_filename="images/decoded_image.png"):
+def decode_image(file_location, output_filename=None):
+    if file_location[-4:] != '.png':
+        file_location += '.png'
+    if output_filename is None:
+        output_filename = file_location[:-12] + "_decoded.png"
     encoded_image = Image.open(file_location)
     decoded_image = Image.new("RGB", encoded_image.size)
     raw_encoded_img = list(encoded_image.getdata())
@@ -38,7 +44,12 @@ def write_text(text, height, width):
     return text_img
 
 
-def encode_image(original_img_filename, encoded_filename, text):
+def encode_image(original_img_filename, text, encoded_filename=None):
+    if original_img_filename[-4:] != '.png':
+        original_img_filename += '.png'
+    if encoded_filename is None:
+        encoded_filename = original_img_filename[:-4] + "_encoded.png"
+
     img = Image.open(original_img_filename)
     raw_img = list(img.getdata())
     encoded_image = Image.new("RGB", img.size)
@@ -60,7 +71,41 @@ def encode_image(original_img_filename, encoded_filename, text):
     encoded_image.save(encoded_filename)
 
 
-if __name__ == "__main__":
-    encode_image("images/chonker.png", "images/encoded_chonker.png",
+def main():
+    while True:
+        print("Welcome to steganography.py's menu!")
+        print("e | encode a .png with your text!")
+        print("d | decode an encoded .png")
+        print("t | to run test (with images/chonker.png")
+        sel = input("  Make a selection!: ").lower()
+        if sel == 't' or sel == 'test':
+            chonker_test()
+            return
+        elif sel == 'e' or sel == 'd':
+            filename = input("please type the relative path to your .png file!").lower()
+            if sel == 'e':
+                text = input("What text would you like to encode your image with?:\n  ")
+                encode_image(filename, text)
+            else:
+                decode_image(filename)
+            return
+
+
+def chonker_test():
+    encode_image("images/chonker.png",
                  "i love this thicc little chonker boy with my whole heart. he's trying his best. please be nice and help him get around! he loves his little cart! use it to wheel him around and take him on walks.")
-    decode_image("images/encoded_chonker.png", "images/decoded_chonker.png")
+    decode_image("images/chonker_encoded.png")
+
+
+if __name__ == "__main__":
+    if len(argv) <= 1:
+        main()
+    elif argv[1] == 'test' or argv[0] == 't':
+        print('test')
+        chonker_test()
+    elif len(argv) == 2:
+        print('decoding')
+        decode_image(argv[1])
+    else:
+        print('encoding')
+        encode_image(argv[1], " ".join(argv[2:]))

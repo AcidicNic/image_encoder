@@ -26,3 +26,22 @@ So a pixel with an odd red value will show up as a black pixel in the final resu
 
 This only changes the color very slightly! (207, x, x) and (206, x, x) aren't noticeably different! And many pixels will be completely unaffected if they already happen to be odd or even.
 
+
+### How do I use steganography.py?
+Run the interactive menu and you wont have to worry about any of the other commands!
+- ```python3 steganography.py```
+
+---
+Encode image "abc.png" with "hello world"
+- ```python3 steganography.py abc hello world```
+- ```python3 steganography.py abc.png hello world```
+
+Decode image ".png" in folder "img"*
+- ```python3 steganography.py img/abc```
+- ```python3 steganography.py img/abc.png```
+
+Run the test which encodes and decodes images/chonker.png
+- ```python3 steganography.py t```
+- ```python3 steganography.py test```
+
+*the folder img is in the same directory as steganography.py
