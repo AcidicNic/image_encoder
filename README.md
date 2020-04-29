@@ -26,4 +26,3 @@ So a pixel with an odd red value will show up as a black pixel in the final resu
 
 This only changes the color very slightly! (207, x, x) and (206, x, x) aren't noticeably different! And many pixels will be completely unaffected if they already happen to be odd or even.
 
-I used the PIL library to draw text into an image, then used that to encode the message!
