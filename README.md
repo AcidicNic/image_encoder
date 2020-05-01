@@ -3,12 +3,12 @@
 
 
 ### Original Image // Encoded Image
-![original image](images/chonker.png) ![encoded image](images/encoded_chonker.png)
+![original image](images/chonker.png) ![encoded image](images/chonker_encoded.png)
 
 These images may look identical, but one of them is encoded with a hidden message!
 
 ### Decoded Image
-![decoded image](images/decoded_chonker.png)
+![decoded image](images/chonker_decoded.png)
 
 After running the encoded image through a short python script, this is the result!
 
