@@ -62,7 +62,7 @@ We could keep going, but the higher we raise our base, the more the colors in th
 
 And all of this is just if we wanted our encoded data to represent an image. It could be anything. With a 3 digit base-3 number encoded into every pixel inside of a 720p png (720x1280) we would have ~3.11 megabytes of encoded data! A 1080p image (1080x1920) encoded with base-3 digits could hold ~6.998 MB of hidden data.
 
-Everything at it's core is stored in binary, 0s and 1s. Any number of any base can be converted into a binary number. So you really could encode anything into an image: another image, audio, text, etc. As long as you how to take something apart and then put it back together.
+Everything at it's core is stored in binary, 0s and 1s. Any number of any base can be converted into a binary number. So you really could encode anything into an image: another image, audio, text, etc. As long as you know how to take it apart and then put it back together the right way.
 
 All this was just about one image. Now imagine what would happen if you encoded every pixel in every frame of a video.
 
